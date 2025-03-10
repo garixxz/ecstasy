@@ -1,0 +1,11 @@
+Developer: Ecstasy Team
+Contact: hello@ecstasy-dating-app.com
+Twitter: @ecstasydating
+Location: Global
+
+/* SITE */
+Last update: 2023-06-01
+Standards: HTML5, CSS3, JavaScript
+Components: Next.js, React, Tailwind CSS, Prisma
+Software: Visual Studio Code, Git
+

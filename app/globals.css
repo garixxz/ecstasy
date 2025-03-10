@@ -2,20 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+
+    --radius: 0.5rem;
+
+    /* Custom 80s neon colors */
+    --neon-pink: 326 100% 70%;
+    --neon-blue: 210 100% 70%;
+    --neon-purple: 270 100% 70%;
+    --neon-yellow: 60 100% 70%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+/* Cassette card hover effect */
+.cassette-card {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cassette-card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+}
+
+/* Confetti animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: fall 3s linear forwards;
+}
+
+/* Magnetic scroll effect */
+.magnetic-scroll {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.magnetic-scroll > * {
+  scroll-snap-align: start;
+}
+
+/* Tape reel animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cassette-loading .reel {
+  animation: spin 2s linear infinite;
+}
+
+.cassette-loading .reel:first-child {
+  animation-direction: reverse;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.glow-border {
+  box-shadow: 0 0 10px currentColor;
+}
+
+.glow-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+

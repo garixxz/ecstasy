@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  password      String
+  image         String?
+  age           Int?
+  gender        String?
+  lookingFor    String?
+  bio           String?   @db.Text
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Music preferences
+  genres        Genre[]
+  artists       Artist[]
+
+  // Relationships
+  sentLikes     Like[]    @relation("SentLikes")
+  receivedLikes Like[]    @relation("ReceivedLikes")
+  sentMessages  Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+}
+
+model Genre {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  users     User[]
+}
+
+model Artist {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  users     User[]
+}
+
+model Like {
+  id          String   @id @default(cuid())
+  sender      User     @relation("SentLikes", fields: [senderId], references: [id])
+  senderId    String
+  receiver    User     @relation("ReceivedLikes", fields: [receiverId], references: [id])
+  receiverId  String
+  isMatch     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@unique([senderId, receiverId])
+}
+
+model Message {
+  id          String   @id @default(cuid())
+  content     String   @db.Text
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id])
+  senderId    String
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  receiverId  String
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+

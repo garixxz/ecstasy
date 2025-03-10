@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow private pages
+Disallow: /messages/
+Disallow: /profile/
+Disallow: /settings/
+
+# Sitemap
+Sitemap: https://ecstasy-dating-app.netlify.app/sitemap.xml
+

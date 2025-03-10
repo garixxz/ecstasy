@@ -1,0 +1,22 @@
+{
+  "name": "Ecstasy - Music-Based Dating",
+  "short_name": "Ecstasy",
+  "description": "Find your perfect match through the universal language of music",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff69b4",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
