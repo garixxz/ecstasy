@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": ["nextauth", "sonner", "neomorphism", "Supabase", "Ecstasy"],
+  "ignorePaths": ["node_modules", ".next", "public"]
+}
+
