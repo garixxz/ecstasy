@@ -45,32 +45,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative mx-auto lg:mr-0"
           >
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="aspect-[4/5] rounded-3xl bg-white dark:bg-gray-800 shadow-sm overflow-hidden">
-                <div className="absolute inset-0 flex flex-col">
-                  <div className="h-1/2 bg-gradient-to-br from-pink-400 to-purple-500 p-6 flex flex-col justify-end">
-                    <div className="w-16 h-16 rounded-full border-4 border-white overflow-hidden mb-2">
-                      <Image
-                        src="/placeholder.svg?height=100&width=100"
-                        alt="Profile"
-                        width={100}
-                        height={100}
-                        className="object-cover"
-                      />
-                    </div>
-                    {/* Removed the "Sarah, 26" text and "Music lover • Concert enthusiast" */}
-                  </div>
-                  <div className="flex-1 p-6">
-                    {/* Removed the "Top Artists" section and artists list */}
-                    {/* Removed the "Favorite Genres" section and genres list */}
-                    <div className="flex flex-col items-center justify-center h-full">
-                      <h3 className="text-xl font-bold text-center mb-2">Discover Your Musical Match</h3>
-                      <p className="text-center text-gray-500">Connect with people who share your music taste</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </motion.div>
         </div>
       </div>
