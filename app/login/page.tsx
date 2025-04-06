@@ -12,13 +12,13 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { MusicIcon } from "lucide-react"
 import { motion } from "framer-motion"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
+
 
 export default function LoginPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"
-  const { toast } = useToast()
 
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -45,24 +45,13 @@ export default function LoginPage() {
 
       if (!result?.error) {
         router.push(callbackUrl)
-        toast({
-          title: "Success!",
-          description: "You have successfully logged in.",
-        })
+        toast.success("You have successfully logged in.")
       } else {
-        toast({
-          title: "Error",
-          description: "Invalid email or password.",
-          variant: "destructive",
-        })
+        toast.error("Invalid email or password.")
       }
     } catch (error) {
       console.error("Login error:", error)
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      })
+      toast.error("Something went wrong. Please try again.")
     } finally {
       setIsLoading(false)
     }

@@ -17,7 +17,6 @@ export default function OnboardingPage() {
   const router = useRouter()
   const { data: session } = useSession()
   const { toast } = useToast()
-
   const [step, setStep] = useState(1)
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
   const [selectedArtists, setSelectedArtists] = useState<string[]>([])
