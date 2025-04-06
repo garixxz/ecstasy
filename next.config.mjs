@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
     domains: [
       // Add your Supabase project domain
-      'https://uloapkdedinhxzorxznx.supabase.co',
+      'https://moixwrnzkdnszigwqnxq.supabase.co',
       // Add any other domains you need
       'http://localhost:3000'
     ],
